@@ -1,7 +1,7 @@
 <template>
   <div class="item">
-    <img alt="image" :src="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
-    <p>{{ date }}</p>
+    <img alt="image" class="centre" :src="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
+    <p class="font-semibold">{{ date }}</p>
     <p>min:
       <br>
       {{ item.temp.min }} °C
@@ -31,5 +31,6 @@ export default {
 <style scoped>
 .item {
   width: 20%;
+  border: solid;
 }
 </style>

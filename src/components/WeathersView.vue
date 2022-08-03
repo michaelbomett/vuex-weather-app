@@ -1,6 +1,10 @@
 <template>
   <div class="items">
+    <div class="font-extrabold">
+      <h1>Weather Forecast</h1>
+    </div>
     <div v-if="weathers.list" class="row">
+
       <WeatherView v-for="(item, index) in weathers.list" :key="index" :item="item"/>
     </div>
     <p v-else>Oh 😢</p>
@@ -22,7 +26,6 @@ export default {
   },
   methods: mapActions(["load"]),
   created() {
-    console.log(this.$store);
     this.$store.dispatch("load");
   }
 };

@@ -1,8 +1,17 @@
 <template>
   <div id="app">
+    <div class="dark:text-white ">
+      <h2 class="text-3xl">Weather App </h2>
+      <!--            <p>Click on a city to get the current weather</p>-->
+    </div>
     <CityForm/>
     <WeathersView/>
   </div>
+  <div class="date italic dark:text-white">
+    <h1>Weather App by Michael Bomett</h1>
+    <br>
+  </div>
+  <footer> Copyright 2022</footer>
 </template>
 
 <script>
