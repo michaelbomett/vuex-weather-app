@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <CityForm/>
-    <Weathers/>
+    <WeathersView/>
   </div>
 </template>
 
 <script>
-import Weathers from "./components/Weathers";
+import WeathersView from "./components/WeathersView";
 import CityForm from "./components/CityForm";
 
 export default {
   name: "App",
   components: {
-    Weathers,
+    WeathersView,
     CityForm
   }
 };

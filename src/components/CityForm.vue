@@ -1,13 +1,13 @@
 <template>
   <form v-on:submit.prevent="$store.dispatch('load')">
-    <label for="city">Város:</label>
+    <label for="city">City:</label>
     <input
       type="text"
       :value="city"
       @input="updateCity"
       :style="weathers.list ? 'background:none' : 'background:red'"
     >
-    <button type="submit" :disabled="!city">Keresés</button>
+    <button type="submit" :disabled="!city">Search</button>
   </form>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img :src="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
+    <img alt="image" :src="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
     <p>{{ date }}</p>
     <p>min:
       <br>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "Weather",
+  name: "WeatherView",
   props: {
     item: Object
   },

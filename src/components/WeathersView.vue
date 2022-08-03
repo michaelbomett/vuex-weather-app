@@ -1,7 +1,7 @@
 <template>
   <div class="items">
     <div v-if="weathers.list" class="row">
-      <Weather v-for="(item, index) in weathers.list" :key="index" :item="item"/>
+      <WeatherView v-for="(item, index) in weathers.list" :key="index" :item="item"/>
     </div>
     <p v-else>Oh 😢</p>
   </div>
@@ -9,12 +9,12 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
-import Weather from "./Weather";
+import WeatherView from "./WeatherView";
 
 export default {
-  name: "Weathers",
+  name: "WeathersView",
   components: {
-    Weather
+    WeatherView
   },
   computed: {
     ...mapGetters(["weathers"]),
