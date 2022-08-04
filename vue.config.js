@@ -1,3 +1,13 @@
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
-  publicPath: '/vuex-weather-app/'
-}
+  /*
+      configureWebpack: {
+          plugins: [
+            new BundleAnalyzerPlugin()
+          ]
+      },
+  */
+  publicPath: process.env.NODE_ENV === 'production'
+      ? './'
+      : '/'
+};

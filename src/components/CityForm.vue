@@ -1,7 +1,7 @@
 <template>
   <div class="" >
-    <div class="text-right">
-    <a class="modebtn text-right hover:bg-black hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-black" v-on:click="darkMode">
+    <div class="text-center">
+    <a class="modebtn hover:bg-black hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-black" v-on:click="darkMode">
       <MoonIcon v-if="!darkmode" class="h-4 w-4 text-grey-400"/>
       <SunIcon v-else class="h-4 w-4 text-white-400"/>
       mode

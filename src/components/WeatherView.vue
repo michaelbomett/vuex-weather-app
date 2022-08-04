@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img alt="image" class="centre" :src="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
+    <img alt="image" class="centre" :src="'https://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
     <p class="font-semibold">{{ date }}</p>
     <p>min:
       <br>
