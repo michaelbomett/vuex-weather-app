@@ -29,7 +29,7 @@ const store = createStore({
       await axios
           .get(
               `https://api.openweathermap.org/data/2.5/forecast/daily?q=${
-                  loadCity
+                  loadCity.toLowerCase()
               }&units=metric&cnt=5&appid=68a2b3c4663814a2a5d2d8ca3d2df853`
           )
           .then(response => response.data)
@@ -46,7 +46,7 @@ const store = createStore({
       await axios
           .get(
               `https://api.openweathermap.org/data/2.5/weather/?q=${
-                  loadCity
+                  loadCity.toLowerCase()
               }&units=metric&APPID=2bc6fce6dcdf72d3f00bbdf18dcf3ad3`
           )
           .then(response => response.data)
