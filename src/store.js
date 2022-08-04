@@ -7,10 +7,11 @@ const store = createStore({
 
     // plugins: createCache({ timeout: 100000}),
     state: {
-      city: "Nairobi",
-      weathers: {},
-      currWeather: {},
-      cityList: ["Nairobi", "Mombasa", "Nakuru", "Kisumu", "Eldoret"]
+        city: "",
+        weathers: {},
+        currWeather: {},
+        cityList: ["Nairobi", "Mombasa", "Nakuru", "Kisumu", "Eldoret"],
+        errorMsg: ""
   },
   mutations: {
       set(state, data) {
@@ -24,11 +25,11 @@ const store = createStore({
       }
       },
   actions: {
-    load: async ({ commit }) => {
+    load: async ({ commit }, loadCity) => {
       await axios
           .get(
               `https://api.openweathermap.org/data/2.5/forecast/daily?q=${
-                  store.state.city
+                  loadCity
               }&units=metric&cnt=5&appid=68a2b3c4663814a2a5d2d8ca3d2df853`
           )
           .then(response => response.data)
@@ -36,23 +37,26 @@ const store = createStore({
             commit("set", weathers);
           })
           .catch(errors => {
-            console.error(errors);
+            // console.error(errors);
+              store.state.errorMsg = errors
             commit("set", {});
           });
     },
-    loadCurrent: async ({ commit }) => {
+    loadCurrent: async ({ commit }, loadCity) => {
       await axios
           .get(
               `https://api.openweathermap.org/data/2.5/weather/?q=${
-                  store.state.city
+                  loadCity
               }&units=metric&APPID=2bc6fce6dcdf72d3f00bbdf18dcf3ad3`
           )
           .then(response => response.data)
           .then(currWeather => {
             commit("setCurr", currWeather);
+            store.state.errorMsg = ''
           })
           .catch(errors => {
-            console.error(errors);
+            // console.error(errors);
+              store.state.errorMsg = errors
             commit("setCurr", {});
           });
     }

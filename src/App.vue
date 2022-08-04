@@ -6,7 +6,6 @@
   </nav>
   <div class="dark:text-white ">
     <h2 class="text-3xl">Weather App </h2>
-    <!--            <p>Click on a city to get the current weather</p>-->
   </div>
 
   <router-view/>
@@ -28,7 +27,7 @@
 }
 
 nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 nav a {

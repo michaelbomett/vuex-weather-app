@@ -9,28 +9,21 @@
     </div>
     <div id="home" :class="darkmode == true ? 'dark':''" >
       <main>
-        <form v-on:submit.prevent="$store.dispatch('load') && $store.dispatch('loadCurrent')"  >
-
+        <form v-on:submit.prevent="$store.dispatch('load',city) && $store.dispatch('loadCurrent',city)"  >
           <div class="search-box ">
-          <!--          <LocationMarkerIcon class="h-4 w-4 text-grey-400"/>-->
-          <label for="city" class="text-2xl font-semibold ">City:</label>
+          <label for="city" class="text-2xl font-semibold dark:text-white ">City:</label>
           <input
               class="search-bar border-2 rounded-full p-2"
               type="text"
-              :value="city"
-              @input="updateCity"
-              :style="weathers.list ? 'background:none' : 'background:red'">
-          <button type="submit" :disabled="!city" class=" " >Search</button>
-
+              @input="updateCity">
+          <button type="submit" :disabled="!city" class=" dark:text-white" >Search</button>
           </div>
         </form>
-<!--        {{weathers}} End:-->
-<!--        <br>-->
-<!--        Current weather: {{ currWeather }}-->
+        <div class="dark:text-white" v-if="$store.state.errorMsg" > No Such City </div>
         <div class="weather-wrap text-center" v-if="typeof currWeather.main != 'undefined'" >
           <div class="location-box">
             <div class="location text-center text-3xl dark:text-white">
-<!--              <LocationMarkerIcon class="h-6 w-6 text-purple-400"/>-->
+              <h1>Current : </h1>
               {{ currWeather.name }}, {{ currWeather.sys.country }}
             </div>
             <div class="date italic dark:text-white">{{ dateBuilder() }}</div>
@@ -42,23 +35,23 @@
             </div>
             <div class="temp text-6xl">{{ Math.round(currWeather.main.temp) }}°C</div>
           </div>
-          </div>
+          <WeathersView/>
+        </div>
+
+
           <!--        list cities -->
 
+        <h1 class="dark:text-white"> Click on a City to get Weather forecast </h1>
+          <div class="  dark:text-white" v-for="(c,index) in cityList" :key="index" >
+            <div class="cities rounded-lg " @click="$store.dispatch('load',c) && $store.dispatch('loadCurrent',c)">
 
-<!--          <div class="date  dark:text-white" v-for="city in cityList" :key="city.id" >-->
-<!--            <div class="cities rounded-lg " @click="$store.dispatch('load') && $store.dispatch('loadCurrent')">-->
-<!--             {{ $store.state.city = city }}-->
-<!--              <h2>{{ city}} </h2>-->
-<!--            </div>-->
+              <h2>{{ c }} </h2>
+            </div>
 
-<!--          </div>-->
+          </div>
 
       </main>
     </div>
-  </div>
-  <div>
-    <WeathersView/>
   </div>
 </template>
 
