@@ -57,13 +57,17 @@
       </main>
     </div>
   </div>
-
+  <div>
+    <WeathersView/>
+  </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 import '../assets/index.css'
 import { MoonIcon,SunIcon } from '@heroicons/vue/outline'
+
+import WeathersView from "@/components/WeathersView";
 
 export default {
   name: "CityForm",
@@ -116,7 +120,7 @@ export default {
     },
 
   },
-  components: { MoonIcon, SunIcon},
+  components: { MoonIcon, SunIcon, WeathersView},
 
   data() {
     return {

@@ -1,8 +1,12 @@
 import { createStore } from "vuex";
 import axios from "axios";
+// import createCache from 'vuex-cache';
+
 
 const store = createStore({
-  state: {
+
+    // plugins: createCache({ timeout: 100000}),
+    state: {
       city: "Nairobi",
       weathers: {},
       currWeather: {},
