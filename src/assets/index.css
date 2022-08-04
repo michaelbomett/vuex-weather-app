@@ -31,6 +31,7 @@ div#home.dark {
 
 .search-box {
     margin-bottom: 20px;
+    margin-block: auto;
     position: relative;
 }
 
@@ -38,10 +39,12 @@ input.search-bar {
     text-align: center;
     box-shadow: 1px 1px 2px #00000070;
     text-transform: capitalize;
-    padding-left: 100px;
-    padding-right: 20px;
-    width: calc(80% - 85px);
+    padding-left: 50px;
+    padding-right: 40px;
+    width: calc(60% - 25px);
     display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
 
 }
 

@@ -53,6 +53,7 @@ const store = createStore({
           .then(currWeather => {
             commit("setCurr", currWeather);
             store.state.errorMsg = ''
+              store.state.city = ''
           })
           .catch(errors => {
             // console.error(errors);

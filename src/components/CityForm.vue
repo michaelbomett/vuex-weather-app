@@ -10,16 +10,16 @@
     <div id="home" :class="darkmode == true ? 'dark':''" >
       <main>
         <form v-on:submit.prevent="$store.dispatch('load',city) && $store.dispatch('loadCurrent',city)"  >
-          <div class="search-box ">
+          <div class=" ">
           <label for="city" class="text-2xl font-semibold dark:text-white ">City:</label>
           <input
-              class="search-bar border-2 rounded-full p-2"
+              class="search-bar border-2 rounded-full p-2 px-8 px-px"
               type="text"
               @input="updateCity">
-          <button type="submit" :disabled="!city" class=" dark:text-white" >Search</button>
+          <button type="submit" :disabled="!city" class="  rounded-full p-1 bg-sky-600 outline dark:text-white font-semibold hover:file:bg-violet-100 selection:bg-pink-300" >Search</button>
           </div>
         </form>
-        <div class="dark:text-white" v-if="$store.state.errorMsg" > No Such City </div>
+        <div class="text-red-700 italic font-extrabold " v-if="$store.state.errorMsg" > No Such City </div>
         <div class="weather-wrap text-center" v-if="typeof currWeather.main != 'undefined'" >
           <div class="location-box">
             <div class="location text-center text-3xl dark:text-white">
@@ -41,7 +41,7 @@
 
           <!--        list cities -->
 
-        <h1 class="dark:text-white"> Click on a City to get Weather forecast </h1>
+        <h1 class="dark:text-white font-semibold"> Click on a City to get Weather forecast </h1>
           <div class="  dark:text-white" v-for="(c,index) in cityList" :key="index" >
             <div class="cities rounded-lg " @click="$store.dispatch('load',c) && $store.dispatch('loadCurrent',c)">
 
