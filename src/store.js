@@ -2,16 +2,16 @@ import { createStore } from "vuex";
 import axios from "axios";
 // import createCache from 'vuex-cache';
 
-
 const store = createStore({
 
-    // plugins: createCache({ timeout: 100000}),
+    // plugins: createCache(),
     state: {
         city: "",
         weathers: {},
         currWeather: {},
         cityList: ["Nairobi", "Mombasa", "Nakuru", "Kisumu", "Eldoret"],
-        errorMsg: ""
+        errorMsg: "",
+        cacheTime: 36000
   },
   mutations: {
       set(state, data) {
@@ -59,7 +59,16 @@ const store = createStore({
               store.state.errorMsg = errors
             commit("setCurr", {});
           });
-    }
+    },
+      // fetchWithCache: async (cityName, time) => {
+      //     const now = new Date().getTime()
+      //     if (!cache[cityName] || cache[cityName].cacheTimer < now ) {
+      //         cache[cityName] = await this.$store.dispatch('loadCurrent(cityName)')
+      //         cache[cityName].cacheTimer = getCacheTimer(time)
+      //     }
+      //     return cache[cityName]
+      // }
+
   },
   getters: {
     city: state => state.city,
@@ -67,5 +76,17 @@ const store = createStore({
   }
 
 })
+
+// const cache = {}
+//
+// let cacheTimer = 0
+// const getCacheTimer = time => {
+//     const now = new Date().getTime()
+//     if(cacheTimer < now + time) {
+//         cacheTimer = now + time
+//     }
+//     return cacheTimer
+// }
+
 
 export default store
